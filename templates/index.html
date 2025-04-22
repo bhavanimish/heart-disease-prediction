@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Heart Disease Prediction Form</h2>
+    <form method="POST" action="/predict">
+        <label>Age:</label>
+        <input type="number" name="age" step="any" required>
+
+        <label>Sex (1 = Male, 0 = Female):</label>
+        <input type="number" name="sex" required>
+
+        <label>Chest Pain Type (0–3):</label>
+        <input type="number" name="cp" required>
+
+        <label>Resting Blood Pressure:</label>
+        <input type="number" name="trestbps" required>
+
+        <label>Cholesterol:</label>
+        <input type="number" name="chol" required>
+
+        <label>Fasting Blood Sugar (1=True, 0=False):</label>
+        <input type="number" name="fbs" required>
+
+        <label>Resting ECG (0–2):</label>
+        <input type="number" name="restecg" required>
+
+        <label>Max Heart Rate:</label>
+        <input type="number" name="thalach" required>
+
+        <label>Exercise Induced Angina (1=Yes, 0=No):</label>
+        <input type="number" name="exang" required>
+
+        <label>Oldpeak:</label>
+        <input type="number" name="oldpeak" step="any" required>
+
+        <label>Slope (0–2):</label>
+        <input type="number" name="slope" required>
+
+        <label>CA (Number of Major Vessels, 0–4):</label>
+        <input type="number" name="ca" required>
+
+        <label>Thal (1=Normal, 2=Fixed Defect, 3=Reversable Defect):</label>
+        <input type="number" name="thal" required>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+        <div class="result">
+            Prediction: {{ prediction }}
+        </div>
+    {% endif %}
+</body>
+</html>

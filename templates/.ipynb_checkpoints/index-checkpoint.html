@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2 style="text-align:center;">Heart Disease Predictor</h2>
+    <form action="/predict" method="POST">
+        {% for col in ['age','sex','cp','trestbps','chol','fbs','restecg','thalach','exang','oldpeak','slope','ca','thal'] %}
+            <label for="{{ col }}">{{ col }}</label>
+            <input type="text" name="{{ col }}" required>
+        {% endfor %}
+        <button type="submit">Predict</button>
+        {% if prediction %}
+            <div class="result">{{ prediction }}</div>
+        {% endif %}
+    </form>
+</body>
+</html>
